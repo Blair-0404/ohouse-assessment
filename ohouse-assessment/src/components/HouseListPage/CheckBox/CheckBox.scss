@@ -1,0 +1,16 @@
+.check-box-wrap {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  line-height: 0.5;
+
+  .check-box {
+    margin-right: 6px;
+
+  }
+  .check-box-text {
+    font-size: 15px;
+    color: #424242;
+    //font-family: AppleSDGothicNeo;
+  }
+}
