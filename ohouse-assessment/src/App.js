@@ -1,9 +1,12 @@
 import React from 'react';
-import './App.css';
+import './App.scss';
+import HouseListPage from "./pages/HouseListPage/HouseListPage";
 
 function App() {
   return (
-    <div className="App">Test React</div>
+    <div className="App">
+      <HouseListPage/>
+    </div>
   );
 }
 
