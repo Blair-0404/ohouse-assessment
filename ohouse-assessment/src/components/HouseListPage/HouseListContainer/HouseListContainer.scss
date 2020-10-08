@@ -1,0 +1,9 @@
+.house-list-wrap {
+  //display: flex;
+  //flex-direction: row;
+  //flex-wrap: wrap;
+  //flex-grow: 4;
+
+  display: grid;
+ grid-template-columns: repeat(4, 1fr);
+}
