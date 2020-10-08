@@ -1,44 +1,63 @@
 import React, {Component} from 'react';
-import axios from "axios";
 import "./HouseListContainer.scss";
 import HouseItem from "./HouseItem/HouseItem";
 
 
 export default class HouseListContainer extends Component {
 
-    state = {
-        data: null
-    };
-
-    componentDidMount() {
-        const base_url = "https://bucketplace-coding-test.s3.amazonaws.com/cards/";
-        axios.get(`${base_url}page_1.json`)
-            .then(response => {
-                this.setState({
-                    data: response.data
-                });
-            }).then(() => {
-            console.log(this.state.data)
-        })
-    }
-
-
-
-
     render() {
-        const { data } = this.state;
+        const {houseList} = this.props;
 
         return (
             <div className="house-list-wrap">
+                {/*{houseList.map(item => {*/}
+                {/*    return (*/}
+                {/*        <li key={item.id} className="item">*/}
+                {/*            <HouseItem*/}
+                {/*                image_url={item.image_url}*/}
+                {/*                nickname={item.nickname}*/}
+                {/*                profile_image_url={item.profile_image_url}/>*/}
+                {/*        </li>*/}
+                {/*    );*/}
+                {/*})}*/}
 
-                <HouseItem/>
-                <HouseItem/>
-                <HouseItem/>
-                <HouseItem/>
-                <HouseItem/>
-                <HouseItem/>
-                <HouseItem/>
-                <HouseItem/>
+
+                <HouseItem
+                    image_url="https://image.ohou.se/image/central_crop/bucketplace-v2-development/uploads-cards-snapshots1547862370_LQp2.jpeg/640/640"
+                    nickname="blair"
+                    profile_image_url="https://image.ohou.se/image/central_crop/bucketplace-v2-development/uploads-default_images-avatar.png/80/80"/>
+                <HouseItem
+                    image_url="https://image.ohou.se/image/central_crop/bucketplace-v2-development/uploads-cards-snapshots1547862370_LQp2.jpeg/640/640"
+                    nickname="blair"
+                    profile_image_url="https://image.ohou.se/image/central_crop/bucketplace-v2-development/uploads-default_images-avatar.png/80/80"/>
+                <HouseItem
+                    image_url="https://image.ohou.se/image/central_crop/bucketplace-v2-development/uploads-cards-snapshots1547862370_LQp2.jpeg/640/640"
+                    nickname="blair"
+                    profile_image_url="https://image.ohou.se/image/central_crop/bucketplace-v2-development/uploads-default_images-avatar.png/80/80"/>
+                <HouseItem
+                    image_url="https://image.ohou.se/image/central_crop/bucketplace-v2-development/uploads-cards-snapshots1547862370_LQp2.jpeg/640/640"
+                    nickname="blair"
+                    profile_image_url="https://image.ohou.se/image/central_crop/bucketplace-v2-development/uploads-default_images-avatar.png/80/80"/>
+                <HouseItem
+                    image_url="https://image.ohou.se/image/central_crop/bucketplace-v2-development/uploads-cards-snapshots1547862370_LQp2.jpeg/640/640"
+                    nickname="blair"
+                    profile_image_url="https://image.ohou.se/image/central_crop/bucketplace-v2-development/uploads-default_images-avatar.png/80/80"/>
+                <HouseItem
+                    image_url="https://image.ohou.se/image/central_crop/bucketplace-v2-development/uploads-cards-snapshots1547862370_LQp2.jpeg/640/640"
+                    nickname="blair"
+                    profile_image_url="https://image.ohou.se/image/central_crop/bucketplace-v2-development/uploads-default_images-avatar.png/80/80"/>
+                <HouseItem
+                    image_url="https://image.ohou.se/image/central_crop/bucketplace-v2-development/uploads-cards-snapshots1547862370_LQp2.jpeg/640/640"
+                    nickname="blair"
+                    profile_image_url="https://image.ohou.se/image/central_crop/bucketplace-v2-development/uploads-default_images-avatar.png/80/80"/>
+                <HouseItem
+                    image_url="https://image.ohou.se/image/central_crop/bucketplace-v2-development/uploads-cards-snapshots1547862370_LQp2.jpeg/640/640"
+                    nickname="blair"
+                    profile_image_url="https://image.ohou.se/image/central_crop/bucketplace-v2-development/uploads-default_images-avatar.png/80/80"/>
+                <HouseItem
+                    image_url="https://image.ohou.se/image/central_crop/bucketplace-v2-development/uploads-cards-snapshots1547862370_LQp2.jpeg/640/640"
+                    nickname="blair"
+                    profile_image_url="https://image.ohou.se/image/central_crop/bucketplace-v2-development/uploads-default_images-avatar.png/80/80"/>
             </div>
         );
     }
