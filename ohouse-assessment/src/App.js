@@ -5,6 +5,11 @@ import axios from "axios";
 
 
 export default class App extends Component {
+
+    // set = new Set();
+    STORAGE_KEY = "scrappedHouseIdList";
+    storageSet = new Set();
+
     state = {
         houseList: [],
         pageNumber: 0,
@@ -14,19 +19,17 @@ export default class App extends Component {
     constructor(props) {
         super(props);
 
+        // todo : localstorage 에 해당키 없으면 만들기
+        if (JSON.parse(localStorage.getItem(this.STORAGE_KEY)) === null) {
+            localStorage.setItem(this.STORAGE_KEY, JSON.stringify(Array.from(this.storageSet)));
+        } else {
+            const tmpArr = JSON.parse(localStorage.getItem(this.STORAGE_KEY));
+            this.storageSet = new Set(tmpArr);
+        }
+
+
         this.loadData.bind(this);
         this.loadData();
-
-        // todo : localstorage 에 해당키 없으면 만들기 O
-        const STORAGE_KEY = "scrappedHouseIdList";
-        const storageSet = new Set();
-        const a = JSON.parse(localStorage.getItem(STORAGE_KEY));
-        // localStorage.setItem(STORAGE_KEY, JSON.stringify(storageSet.add("test")));
-        // console.log(a)
-
-        if(JSON.parse(localStorage.getItem(STORAGE_KEY)) === null) {
-            localStorage.setItem(STORAGE_KEY, JSON.stringify(storageSet));
-        }
     }
 
     loadData() {
@@ -39,11 +42,18 @@ export default class App extends Component {
                         isLastPage: true
                     })
                 } else {
+                    // todo : localstorage 조회해서 house.id가 저장되어있다면 isScrapped : true로 저장 그렇지 않다면 false
                     const updatedDate = response.data.map((house) => {
-                        return {
-                            ...house,
-                            // todo : localstorage 조회해서 house.id가 저장되어있다면 isScrapped : true로 저장 그렇지 않다면 false
-                            isScrapped : false
+                        if (this.storageSet.has(house.id)) {
+                            return {
+                                ...house,
+                                isScrapped: true
+                            }
+                        } else {
+                            return {
+                                ...house,
+                                isScrapped: false
+                            }
                         }
                     });
                     const newHouseList = [...this.state.houseList];
