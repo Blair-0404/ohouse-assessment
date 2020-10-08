@@ -17,7 +17,16 @@ export default class App extends Component {
         this.loadData.bind(this);
         this.loadData();
 
-        // todo : localstorage에 해당키 없으면 만들기
+        // todo : localstorage 에 해당키 없으면 만들기 O
+        const STORAGE_KEY = "scrappedHouseIdList";
+        const storageSet = new Set();
+        const a = JSON.parse(localStorage.getItem(STORAGE_KEY));
+        // localStorage.setItem(STORAGE_KEY, JSON.stringify(storageSet.add("test")));
+        // console.log(a)
+
+        if(JSON.parse(localStorage.getItem(STORAGE_KEY)) === null) {
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(storageSet));
+        }
     }
 
     loadData() {
