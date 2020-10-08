@@ -6,6 +6,8 @@ import HouseListContainer from "../../components/HouseListPage/HouseListContaine
 
 export default class HouseListPage extends Component {
     render() {
+        const { houseList } = this.props;
+
         return (
             <div className="house-list-page">
                 <div className="house-list-page-wrap">
@@ -13,7 +15,7 @@ export default class HouseListPage extends Component {
                     <CheckBox/>
                 </div>
                 <div className="body-section">
-                    <HouseListContainer/>
+                    <HouseListContainer houseList={houseList}/>
                 </div>
                 </div>
             </div>
