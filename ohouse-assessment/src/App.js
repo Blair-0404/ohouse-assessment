@@ -16,6 +16,8 @@ export default class App extends Component {
 
         this.loadData.bind(this);
         this.loadData();
+
+        // todo : localstorage에 해당키 없으면 만들기
     }
 
     loadData() {
@@ -28,15 +30,16 @@ export default class App extends Component {
                         isLastPage: true
                     })
                 } else {
-                    const newHouseList = [...this.state.houseList];
-                    response.data.map((house) => {
+                    const updatedDate = response.data.map((house) => {
                         return {
                             ...house,
+                            // todo : localstorage 조회해서 house.id가 저장되어있다면 isScrapped : true로 저장 그렇지 않다면 false
                             isScrapped : false
                         }
-                    })
+                    });
+                    const newHouseList = [...this.state.houseList];
 
-                    newHouseList.push(...response.data);
+                    newHouseList.push(...updatedDate);
 
                     this.setState({
                         houseList: newHouseList,

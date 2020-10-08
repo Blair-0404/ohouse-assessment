@@ -7,17 +7,19 @@ export default class HouseListContainer extends Component {
 
     render() {
         const {houseList} = this.props;
+        console.log(houseList);
 
         return (
             <div className="house-list-wrap">
                 {houseList.map(item => {
                     return (
-                        // <li key={item.id} className="item">
                             <HouseItem
+                                key={item.id}
+                                id={item.id}
+                                isScrapped={item.isScrapped}
                                 image_url={item.image_url}
                                 nickname={item.nickname}
                                 profile_image_url={item.profile_image_url}/>
-                        // </li>
                     );
                 })}
             </div>
