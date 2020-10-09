@@ -5,7 +5,6 @@ import HouseItem from "./HouseItem/HouseItem";
 export default class HouseListContainer extends Component {
     render() {
         const {houseList, updateScrapped} = this.props;
-        console.log(houseList);
 
         return (
             <div className="house-list-wrap">

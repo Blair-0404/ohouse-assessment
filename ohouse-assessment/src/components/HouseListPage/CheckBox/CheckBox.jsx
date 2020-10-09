@@ -6,7 +6,6 @@ import uncheckedIcon from "../../../images/uncheckedIcon.svg";
 export default class CheckBox extends Component {
     render() {
         const {viewOnlyScrapped, onlyScrapped} = this.props;
-        console.log(onlyScrapped)
 
         return (
             <div className="check-box-wrap">
